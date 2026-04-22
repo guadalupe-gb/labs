@@ -1,4 +1,4 @@
 from app import suma
 
 def test_suma():
-    assert suma(2,3) == 4
+    assert suma(2,3) == 5
