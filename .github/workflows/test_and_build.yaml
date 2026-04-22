@@ -12,7 +12,7 @@ permissions:
 jobs: #What is going to do 
   test_and_build:  #job name can be "build" or other
 
-    runs-on: ubuntu-latest. #Where is goin to run, in this case will create a container with ubuntu 
+    runs-on: ubuntu-latest #Where is goin to run, in this case will create a container with ubuntu 
 
     steps: #steps to follow by the job
     - uses: actions/checkout@v4 #pull code of the branch
