@@ -24,12 +24,12 @@ jobs:
         python-version: "3.11"
     - name: Install dependencies
       run: |
-        pip install -r src/requirements.txt
+        pip install -r src-lab2/requirements.txt
     - name: Check linting
-      working-directory: src
+      working-directory: src-lab2
       run: ruff check .
     - name: Test with pytest
-      working-directory: src
+      working-directory: src-lab2
       run: pytest test.py
     - name: Login to GitHub Container Registry
       uses: docker/login-action@v3
@@ -40,7 +40,7 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v6
       with:
-        context: ./src
-        file: ./src/Dockerfile
+        context: ./src-lab2
+        file: ./src-lab2/Dockerfile
         push: true
-        tags: ghcr.io/guadalupe-gb/labs/test:latest
+        tags: ghcr.io/guadalupe-gb/labs/test:0.0.1
