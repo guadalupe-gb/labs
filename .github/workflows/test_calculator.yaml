@@ -26,4 +26,4 @@ jobs: #What is going to do
     - name: Test with pytest
       working-directory: src
       run: |
-        pytest
+        pytest test.py
