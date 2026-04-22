@@ -1,0 +1,32 @@
+name: test and build #workflow name
+
+on: #When this workflow will be executed
+  push: #When push action
+    branches: [ "main" ]
+  # pull_request: #When pull request action
+  #   branches: [ "main" ]
+
+permissions:  
+  contents: read  #permissions to read content.The workflow can read we have in github
+
+jobs: #What is going to do 
+  test_and_build:  #job name can be "build" or other
+
+    runs-on: ubuntu-latest. #Where is goin to run, in this case will create a container with ubuntu 
+
+    steps: #steps to follow by the job
+    - uses: actions/checkout@v4 #pull code of the branch
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v3 #install python 
+      with:
+        python-version: "3.11"
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        # python -m pip install --upgrade pip
+        # pip install flake8 pytest
+        # if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Test with pytest
+      working-directory: .
+      run: |
+        pytest test.py
