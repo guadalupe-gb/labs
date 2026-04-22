@@ -22,7 +22,7 @@ jobs: #What is going to do
         python-version: "3.11"
     - name: Install dependencies
       run: |
-        pip install -r requirements.txt
+        pip install -r requirements.txt # install dependencies defined in requirements.txt file
         # python -m pip install --upgrade pip
         # pip install flake8 pytest
         # if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
