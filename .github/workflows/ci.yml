@@ -19,9 +19,11 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
+        working-directory: src-lab1
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: run test
+        working-directory: src-lab1
         run: pytest

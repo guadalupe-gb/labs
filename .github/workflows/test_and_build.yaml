@@ -19,12 +19,12 @@ jobs:
     - name: pull code from branch
       uses: actions/checkout@v4 
     - name: Install Python 3.11
-      uses: actions/setup-python@v3 
+      uses: actions/setup-python@v5
       with:
         python-version: "3.11"
     - name: Install dependencies
-      run: |
-        pip install -r ./src-lab2/requirements.txt
+      run: 
+        pip install -r src-lab2/requirements.txt
     - name: Check linting
       working-directory: src-lab2
       run: ruff check .
