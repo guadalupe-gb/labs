@@ -1,24 +1,25 @@
-name: test and build #workflow name
+name: test and build 
 
-on: #When this workflow will be executed
-  push: #When push action
+on: 
+  push: 
     branches: [ "main" ]
-  # pull_request: #When pull request action
+  # pull_request: 
   #   branches: [ "main" ]
 
 permissions:  
-  contents: read  #permissions to read content.The workflow can read we have in github
+  contents: read  
   packages: write
 
-jobs: #What is going to do 
-  test-and-build:  #job name can be "build" or other
+jobs: 
+  test-and-build:  
 
-    runs-on: ubuntu-latest #Where is goin to run, in this case will create a container with ubuntu 
+    runs-on: ubuntu-latest 
 
-    steps: #steps to follow by the job
-    - uses: actions/checkout@v4 #pull code of the branch
-    - name: Set up Python 3.11
-      uses: actions/setup-python@v3 #install python 
+    steps: 
+    - name: pull code from branch
+      uses: actions/checkout@v4 
+    - name: Install Python 3.11
+      uses: actions/setup-python@v3 
       with:
         python-version: "3.11"
     - name: Install dependencies
@@ -42,4 +43,4 @@ jobs: #What is going to do
         context: ./src
         file: ./src/Dockerfile
         push: true
-        tags: ghcr.io/guadalupe-gb/labs:latest
+        tags: ghcr.io/guadalupe-gb/labs/test:latest
