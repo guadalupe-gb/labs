@@ -40,4 +40,4 @@ jobs: #What is going to do
       uses: docker/build-push-action@v6
       with:
         push: true
-        tags: ghcr.io/guadalupe-gb/labs/app:latest
+        tags: ghcr.io/guadalupe-gb/labs:latest
