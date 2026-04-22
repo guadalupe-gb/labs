@@ -1,4 +1,4 @@
-name: test calculator #workflow name
+name: test and build #workflow name
 
 on: #When this workflow will be executed
   push: #When push action
@@ -11,7 +11,7 @@ permissions:
   packages: write
 
 jobs: #What is going to do 
-  test:  #job name can be "build" or other
+  test-and-build:  #job name can be "build" or other
 
     runs-on: ubuntu-latest #Where is goin to run, in this case will create a container with ubuntu 
 
@@ -30,7 +30,7 @@ jobs: #What is going to do
     - name: Test with pytest
       working-directory: src
       run: pytest test.py
-    - name: Login to GitHun Container Registry
+    - name: Login to GitHub Container Registry
       uses: docker/login-action@v3
       with:
         registry: ghcr.io
@@ -39,5 +39,7 @@ jobs: #What is going to do
     - name: Build and push
       uses: docker/build-push-action@v6
       with:
+        context: ./src
+        file: ./src/Dockerfile
         push: true
         tags: ghcr.io/guadalupe-gb/labs:latest
