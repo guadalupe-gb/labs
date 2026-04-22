@@ -1,4 +1,4 @@
-name: test and build #workflow name
+name: test calculator #workflow name
 
 on: #When this workflow will be executed
   push: #When push action
