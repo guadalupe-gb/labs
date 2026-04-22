@@ -23,9 +23,8 @@ jobs:
       with:
         python-version: "3.11"
     - name: Install dependencies
-      working-directory: src-lab2
       run: |
-        pip install -r requirements.txt
+        pip install -r ./src-lab2/requirements.txt
     - name: Check linting
       working-directory: src-lab2
       run: ruff check .
